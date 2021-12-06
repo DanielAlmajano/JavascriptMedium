@@ -57,3 +57,38 @@ function Car(make, model, year, owner=null) {
 a = {a: 1, b: 2};
 console.log(delete a.a && delete a.b);
 console.log(a);
+
+//Getters y setters
+let o = {
+    a: 7,
+    get b() {
+        return this.a + 1;
+    },
+    set c(x) {
+        this.a = x / 2;
+    }
+};
+
+console.log(o.a);
+console.log(o.b);
+o.c = 50;
+console.log(o.a);
+console.log('\n');
+
+//Defining properties
+let o1 = {a: 0};
+Object.defineProperties(o1,  {
+    'b': {get: () => this.a + 1},
+    'c': { set: (x) => this.a = x / 2}
+});
+o1.c = 10;
+console.log(o1.b);
+
+//Compare objects
+let fruit = {name: 'apple'};
+let fruitbear = {name: 'apple'};
+console.log(fruit === fruitbear);
+
+let fruit1 = {name: 'apple'};
+let fruitbear1 = fruit1;
+console.log(fruit1 === fruitbear1);
